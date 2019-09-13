@@ -21,18 +21,18 @@ class gestion_date {
     }
 
     /**
-     * @return array
+     *
      * @throws Exception
      */
     private function get_date(){
         $x = getdate();
-        if (!isset($x["year"])){
-            throw new Exception("<i>00/00/00(date temporairement indisponible)</i>");
+        if (!isset($x[0])){
+            throw new Exception('"00/00/00(date temporairement indisponible)"');
         }
         return $x;
     }
 
-    /**
+    /**(
      * @param $delimiter
      * @return array|string
      */
@@ -63,7 +63,7 @@ class gestion_date {
     private function format_zero($numbers_of_date){
         $result = [];
         foreach ($numbers_of_date as $number){
-            if ((int) $number < 10){
+            if ((int) $number < 10 AND (int) $number !== 00){
                 $number = '0'.$number;
             }
             $result []= $number;
