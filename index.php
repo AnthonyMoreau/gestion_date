@@ -5,6 +5,6 @@ use DATE\gestion_date;
 
 
 $date = new gestion_date();
-$day_date = $date->day_date();
+$day_date = $date->day_date("/");
 
 echo $day_date;
